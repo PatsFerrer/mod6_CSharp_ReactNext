@@ -1,8 +1,7 @@
 # Recode | Projeto Front-End Agência de Viagens
 
-Este é um projeto React com Next.js para consumir a API C# de uma agência de viagens.
+Este é o Front-End em React com Next.js para consumir a API C# de uma agência de viagens.
 
-- Primeiro, baixe e execute a [API C#](https://github.com/PatsFerrer/ProjetoMod6-BackEnd-API).
 ## Iniciando
 - Instale 
 ```bash
