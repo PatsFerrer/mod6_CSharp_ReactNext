@@ -31,6 +31,8 @@ namespace DestinoCertoAPI.Context
             modelBuilder.ApplyConfiguration(new SeedDataConfiguration());
             modelBuilder.ApplyConfiguration(new SeedDataConfigurationCliente());
             modelBuilder.ApplyConfiguration(new SeedDataConfigurationContato());
+            modelBuilder.ApplyConfiguration(new SeedDataConfigurationReserva());
+            
             base.OnModelCreating(modelBuilder);
         }
     }
