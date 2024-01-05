@@ -36,4 +36,18 @@ namespace DestinoCertoAPI.Data
             );
         }
     }
+
+    public class SeedDataConfigurationContato : IEntityTypeConfiguration<Contato>
+    {
+        public void Configure(EntityTypeBuilder<Contato> builder)
+        {
+            builder.HasData(
+                new Contato { Id = 1, Nome = "Juquinha de Assis", Email = "juca@com", Mensagem = "Gostaria de saber sobre minha viagem!" },
+                new Contato { Id = 2, Nome = "Théo José", Email = "josel@com", Mensagem = "Como eu posso comprar uma viagem para Fernando de Noronha?" },
+                new Contato { Id = 3, Nome = "Lione Messi", Email = "messi@barca.com", Mensagem = "Gostaria de ser informado sobre promoções de viagens para Barcelona, por favor." },
+                new Contato { Id = 4, Nome = "Mário Brother", Email = "mario@hotmail.com", Mensagem = "Existe algum lugar incrível para eu levar a Princesa Peach?" }
+
+            );
+        }
+    }
 }
