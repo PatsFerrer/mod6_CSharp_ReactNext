@@ -3,6 +3,7 @@ using System;
 using DestinoCertoAPI.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DestinoCertoAPI.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    partial class ApiDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240105140436_destinos")]
+    partial class destinos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,48 +58,6 @@ namespace DestinoCertoAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Clientes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Cpf = "789.674.789-98",
-                            DataNascimento = new DateTime(1985, 3, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "iri.jr@gmail.com",
-                            Nome = "Irineu Júnior",
-                            Senha = "123",
-                            Telefone = "9 2658-5236"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Cpf = "123.654.789-98",
-                            DataNascimento = new DateTime(1996, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "maedragoes@com",
-                            Nome = "Daenerys Targaryen",
-                            Senha = "843",
-                            Telefone = "9 8745-4789"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Cpf = "987.654.789-98",
-                            DataNascimento = new DateTime(1979, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "cap.marvel@gmail.com",
-                            Nome = "Carol Denvers",
-                            Senha = "789",
-                            Telefone = "9 9854-1425"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Cpf = "967.257.146-23",
-                            DataNascimento = new DateTime(1914, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "cap.america@gmail.com",
-                            Nome = "Steve Rogers",
-                            Senha = "655",
-                            Telefone = "9 8945-3576"
-                        });
                 });
 
             modelBuilder.Entity("DestinoCertoAPI.Models.Contato", b =>
