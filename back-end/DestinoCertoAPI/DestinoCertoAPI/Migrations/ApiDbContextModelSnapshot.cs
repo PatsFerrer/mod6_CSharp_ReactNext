@@ -55,7 +55,7 @@ namespace DestinoCertoAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clientes", (string)null);
+                    b.ToTable("Clientes");
 
                     b.HasData(
                         new
@@ -123,7 +123,7 @@ namespace DestinoCertoAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contatos", (string)null);
+                    b.ToTable("Contatos");
 
                     b.HasData(
                         new
@@ -182,7 +182,7 @@ namespace DestinoCertoAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Destinos", (string)null);
+                    b.ToTable("Destinos");
 
                     b.HasData(
                         new
@@ -280,7 +280,7 @@ namespace DestinoCertoAPI.Migrations
 
                     b.HasIndex("DestinoId");
 
-                    b.ToTable("Reservas", (string)null);
+                    b.ToTable("Reservas");
 
                     b.HasData(
                         new
@@ -303,13 +303,20 @@ namespace DestinoCertoAPI.Migrations
                             ClienteId = 3,
                             Data = new DateTime(2024, 5, 5, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             DestinoId = 5
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ClienteId = 4,
+                            Data = new DateTime(2024, 5, 15, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            DestinoId = 6
                         });
                 });
 
             modelBuilder.Entity("DestinoCertoAPI.Models.Reserva", b =>
                 {
                     b.HasOne("DestinoCertoAPI.Models.Cliente", "Cliente")
-                        .WithMany("Reservas")
+                        .WithMany("reservas")
                         .HasForeignKey("ClienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -327,7 +334,7 @@ namespace DestinoCertoAPI.Migrations
 
             modelBuilder.Entity("DestinoCertoAPI.Models.Cliente", b =>
                 {
-                    b.Navigation("Reservas");
+                    b.Navigation("reservas");
                 });
 
             modelBuilder.Entity("DestinoCertoAPI.Models.Destino", b =>
