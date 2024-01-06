@@ -25,14 +25,22 @@ namespace DestinoCertoAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Reserva>>> GetReservas()
         {
-            return await _context.Reservas.ToListAsync();
+            var reserva = await _context.Reservas
+                .Include(reserva => reserva.Cliente)
+                .Include(reserva => reserva.Destino)
+                .ToListAsync();
+
+            return reserva;
         }
 
         // GET: api/Reservas/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Reserva>> GetReserva(int id)
         {
-            var reserva = await _context.Reservas.FindAsync(id);
+            var reserva = await _context.Reservas
+                .Include(reserva => reserva.Cliente)
+                .Include(reserva => reserva.Destino)
+                .FirstOrDefaultAsync(reserva => reserva.Id == id);
 
             if (reserva == null)
             {

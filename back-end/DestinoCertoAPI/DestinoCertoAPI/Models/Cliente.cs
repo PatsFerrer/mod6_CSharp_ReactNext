@@ -1,16 +1,17 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace DestinoCertoAPI.Models
 {
     [Table("Clientes")]
     public class Cliente
     {
-        public Cliente() 
-        { 
-            Reservas = new Collection<Reserva>();
-        }
+       // public Cliente() 
+       // { 
+       //     Reservas = new Collection<Reserva>();
+       // }
 
         [Key]
         public int Id {  get; set; }
@@ -38,6 +39,9 @@ namespace DestinoCertoAPI.Models
 
         public DateTime DataNascimento { get; set; }
 
-        public ICollection<Reserva> Reservas { get; set; }
+        //public ICollection<Reserva> Reservas { get; set; }
+
+        [JsonIgnore]
+        public List<Reserva> reservas { get; set; }
     }
 }

@@ -55,7 +55,7 @@ namespace DestinoCertoAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clientes");
+                    b.ToTable("Clientes", (string)null);
 
                     b.HasData(
                         new
@@ -123,7 +123,7 @@ namespace DestinoCertoAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contatos");
+                    b.ToTable("Contatos", (string)null);
 
                     b.HasData(
                         new
@@ -182,7 +182,7 @@ namespace DestinoCertoAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Destinos");
+                    b.ToTable("Destinos", (string)null);
 
                     b.HasData(
                         new
@@ -280,7 +280,7 @@ namespace DestinoCertoAPI.Migrations
 
                     b.HasIndex("DestinoId");
 
-                    b.ToTable("Reservas");
+                    b.ToTable("Reservas", (string)null);
 
                     b.HasData(
                         new

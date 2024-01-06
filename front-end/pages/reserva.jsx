@@ -68,18 +68,18 @@ export default function Reserva() {
                                     <th>Id</th>
                                     <th>Cliente</th>
                                     <th>Destino</th>
-                                    {/* <th>Valor</th> */}
+                                    <th>Valor</th>
                                     <th>Data</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {reservas.map(({ id, clienteId, destinoId, data }) => (
+                                {reservas.map(({ id, cliente, destino, data }) => (
                                     <tr key={id}>
                                         <td>{id}</td>
-                                        <td>{clienteId}</td> {/* cliente.nome */}
-                                        <td>{destinoId}</td> {/* destino.nome */}
-                                        {/* <td>R$ {destinoId}</td> destino.valor */}
+                                        <td>{cliente.nome}</td>
+                                        <td>{destino.nome}</td>
+                                        <td>R$ {destino.valor}</td>
                                         <td>{new Date(data).toLocaleString('pt-BR', {timeZone: 'America/Sao_Paulo'})}</td>
                                         <td>
                                             <Link href={`/update-reserva/${id}`} className="btn btn-primary btn-edit m-1">Editar</Link>

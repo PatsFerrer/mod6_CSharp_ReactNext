@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.ObjectModel;
+using System.Text.Json.Serialization;
 
 namespace DestinoCertoAPI.Models
 {
@@ -31,6 +32,7 @@ namespace DestinoCertoAPI.Models
         [StringLength(300)]
         public string Imagem { get; set; }
 
+        [JsonIgnore]
         public ICollection<Reserva> Reservas { get; set; }
     }
 }

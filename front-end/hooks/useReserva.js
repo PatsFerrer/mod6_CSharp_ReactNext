@@ -1,21 +1,34 @@
 import { useEffect, useState } from 'react'
 import axios from "axios";
 import { useRouter } from "next/router";
-
+import { useCliente } from './useCliente';
+import { useDestino } from './useDestino';
 
 export const useReserva = () => {
+    const {clients, listarClientes} = useCliente()
+    const {destinos, listarDestinos} = useDestino()
 
     const router = useRouter();
     const URL = "https://localhost:7146/api/Reservas"
 
-    const [cliente, setCliente] = useState({id: 1});
-    const [destino, setDestino] = useState({id: 1});
-    const [reserva, setReserva] = useState({ id: 0, cliente: "", destino: "", data: ""}); //clienteId e destinoId?
+    const [cliente, setCliente] = useState({id: {...clients[0]}.id});
+    const [destino, setDestino] = useState({id: {...destinos[0]}.id});
+    const [reserva, setReserva] = useState({ id: 0, cliente: {...cliente}, destino: {...destino}, data: ""});
     const [reservas, setReservas] = useState([]);
 
     useEffect(() => {
-        reserva.cliente = cliente //mudei aqui
-        reserva.destino = destino // mudei aqui
+        listarClientes()
+        listarDestinos()
+    }, [])
+    
+    useEffect(() => {
+        reserva.cliente = clients[0]
+        reserva.destino = destinos[0]
+    }, [clients, destinos])
+
+    useEffect(() => {
+        reserva.cliente = cliente
+        reserva.destino = destino
     }, [cliente, destino])
 
     const handleInputChange = (e) => {
@@ -42,13 +55,20 @@ export const useReserva = () => {
     };
 
     const criarReserva = () => {
+        const novaReserva = {
+            id: reserva.id,
+            clienteId: reserva.cliente.id,
+            destinoId: reserva.destino.id,
+            data: reserva.data
+        }
         axios
-            .post(URL, reserva)
+            .post(URL, novaReserva)
             .then((response) => {
                 router.push("/reserva");
             })
             .catch((error) => {
-                alert("Erro ao inserir reserva: " + error);
+               
+                console.log(error)
             });
     }
 
@@ -56,7 +76,7 @@ export const useReserva = () => {
         axios
             .get(`${URL}/${codigo}`)
             .then((response) => {
-                setReserva(response.data);
+            setReserva(response.data);
                setCliente(response.data.cliente)
                setDestino(response.data.destino)
                 
@@ -67,8 +87,14 @@ export const useReserva = () => {
     }
 
     const atualizarReserva = () => {
+        const novaReserva = {
+            id: reserva.id,
+            clienteId: reserva.cliente.id,
+            destinoId: reserva.destino.id,
+            data: reserva.data
+        }
         axios
-            .put(`${URL}/${reserva.id}`, reserva)
+            .put(`${URL}/${reserva.id}`, novaReserva)
             .then((response) => {
                 router.push('/reserva');
 

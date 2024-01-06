@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace DestinoCertoAPI.Models
 {
-    [Table("Reservas")]
+    //[Table("Reservas")]
     public class Reserva
     {
         [Key]
@@ -14,12 +14,12 @@ namespace DestinoCertoAPI.Models
 
         public int ClienteId { get; set; }
         
-        [JsonIgnore]
-        public Cliente? Cliente { get; set; }
+        //[JsonIgnore]
+        public Cliente Cliente { get; set; }
 
         public int DestinoId { get; set; }
 
-        [JsonIgnore]
+        //[JsonIgnore]
         public Destino Destino { get; set; }
     }
 }

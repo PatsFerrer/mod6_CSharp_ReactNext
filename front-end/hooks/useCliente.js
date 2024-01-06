@@ -17,6 +17,7 @@ export const useCliente = () => {
                 .get(URL)
                 .then((response) => {
                     setClients(response.data);
+                    console.log('listando')
                 })
                 .catch((error) => {
                     console.error("Erro ao buscar a lista de clientes: ", error);
