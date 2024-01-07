@@ -1,11 +1,11 @@
-# Recode | Projeto Full Stack Agência de Viagens
+# Recode Pro | Projeto Full Stack Agência de Viagens
 
 Este é um Projeto em React com Next.js para consumir a API C# de uma agência de viagens.
 
 ## Iniciando
 Primeiro, execute a API C# dentro da pasta 'Back-end'. Depois execute o Front.
 
-# Front-End
+## Front-End
 
 - Instale 
 ```bash
