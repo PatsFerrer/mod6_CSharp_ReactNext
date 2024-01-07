@@ -24,13 +24,3 @@ bun dev
 ```
 
 Abra [http://localhost:3000](http://localhost:3000) com seu navegador para ver o resultado.
-
-## 🚀 Tecnologias
-Esse projeto foi desenvolvido com as seguintes tecnologias:
-
-# Front-end
-- React
-- Next.js
-- Axios
-- Moment.js
-- Git e GitHub
